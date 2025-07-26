@@ -14,6 +14,9 @@ from PIL import Image
 # --- CONFIG GOOGLE SHEETS ---
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
+# Aquí va tu ID de la hoja de cálculo
+
+
 # Cargar las credenciales desde los secrets de Streamlit
 credentials_info = json.loads(st.secrets["google_service_account"]["credentials"])
 
