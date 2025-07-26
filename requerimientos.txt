@@ -6,3 +6,5 @@ google-api-python-client
 Pillow
 numpy
 pandas
+streamlit
+streamlit-drawable-canvas
