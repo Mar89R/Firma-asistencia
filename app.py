@@ -11,17 +11,17 @@ from googleapiclient.errors import HttpError
 from PIL import Image
 
 # --- CONFIG GOOGLE SHEETS ---
-SERVICE_ACCOUNT_FILE = 'credentials.json'  # Pon aquí el nombre exacto del JSON que descargaste
-SPREADSHEET_ID ='1wa7-hNnzUcfdkE1tbTjUg6oWHzmLxl6GxbwfcdZvIhg'  # Aquí va el ID de tu hoja de cálculo
-
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-credentials = service_account.Credentials.from_service_account_file(
-    SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+# Cargar las credenciales desde los secrets de Streamlit
+credentials_info = json.loads(st.secrets["google_service_account"]["credentials"])
+
+credentials = service_account.Credentials.from_service_account_info(
+    credentials_info, scopes=SCOPES
+)
 
 service = build('sheets', 'v4', credentials=credentials)
 sheet = service.spreadsheets()
-
 # --- STREAMLIT APP ---
 
 st.title("🏏 Entrenamiento de Béisbol - Firma de Asistencia")
