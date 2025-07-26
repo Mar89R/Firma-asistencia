@@ -1,0 +1,8 @@
+streamlit
+streamlit-drawable-canvas
+google-auth
+google-auth-oauthlib
+google-api-python-client
+Pillow
+numpy
+pandas
